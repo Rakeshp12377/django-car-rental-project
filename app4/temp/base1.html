@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      {% load static %}
+      <!-- Basic Meta Tags -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Site Title and Description -->
+      <title>Cars Rental</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+      <!-- Custom Style CSS -->
+      <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+      <!-- Responsive CSS -->
+      <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+      <!-- Favicon -->
+      <link rel="icon" href="{% static 'images/fevicon.png' %}" type="image/gif" />
+      <!-- Font Awesome & Google Fonts -->
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+   </head>
+   <body>
+      <!-- Header Section -->
+      <div class="header_section">
+         <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+               <a class="navbar-brand" href="index.html"><img src="{% static 'images/logo1.jpg' %}" alt="Logo" height="130px" width="130px"></a>
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ml-auto">
+                     <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                     <li class="nav-item"><a class="nav-link" href="/cardealer/about/">About</a></li>
+                     <li class="nav-item"><a class="nav-link" href="/cardealer/cars/">Cars</a></li>
+                     <li class="nav-item"><a class="nav-link" href="/cardealer/contact/">Contact</a></li>
+
+                     <!-- Login Dropdown -->
+                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           Login
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                           {% if user.is_authenticated %}
+                              <a class="dropdown-item" href="#">Hello, {{ user.username }}</a>
+                              <a class="dropdown-item" href="/dashboard/">Dashboard</a>
+                              <a class="dropdown-item" href="/logout">Logout</a>
+                           {% else %}
+                              <a class="dropdown-item" href="/cardealer/login/">Admin Login</a>
+                              <a class="dropdown-item" href="/login/">Customer Login</a>
+                           {% endif %}
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+            </nav>
+         </div>
+      </div>
+      <!-- Header Section End -->
+
+      {% block content %}
+      {% endblock %}
+
+      <!-- Footer Section -->
+      <div class="footer_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="footer_logo">
+                  </div>
+               </div>
+            </div>
+            <div class="footer_section_2">
+               <div class="row">
+                  <div class="col">
+                     <h4 class="footer_taital">Subscribe Now</h4>
+                     <p class="footer_text">There are many variations of passages of Lorem Ipsum available.</p>
+                     <div class="form-group">
+                        <textarea class="update_mail" placeholder="Enter Your Email" rows="5" id="comment" name="Enter Your Email"></textarea>
+                        <div class="subscribe_bt"><a href="#">Subscribe</a></div>
+                     </div>
+                  </div>
+                  <div class="col">
+                     <h4 class="footer_taital">Information</h4>
+                     <p class="lorem_text">There are many variations of passages of Lorem Ipsum available, but the majority.</p>
+                  </div>
+                  <div class="col">
+                     <h4 class="footer_taital">Helpful Links</h4>
+                     <p class="lorem_text">There are many variations of passages of Lorem Ipsum available, but the majority.</p>
+                  </div>
+                  <div class="col">
+                     <h4 class="footer_taital">Investments</h4>
+                     <p class="lorem_text">There are many variations of passages of Lorem Ipsum available, but the majority.</p>
+                  </div>
+                  <div class="col">
+                     <h4 class="footer_taital">Contact Us</h4>
+                     <div class="location_text"><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i><span class="padding_left_15">Location</span></a></div>
+                     <div class="location_text"><a href="#"><i class="fa fa-phone" aria-hidden="true"></i><span class="padding_left_15">(+71) 9106354329</span></a></div>
+                     <div class="location_text"><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i><span class="padding_left_15">rakesh27903@gmail.com</span></a></div>
+                     <div class="social_icon">
+                        <ul>
+                           <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                           <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                           <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                           <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Footer Section End -->
+
+      <!-- Copyright Section -->
+      <div class="copyright_section">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <p class="copyright_text">2023 All Rights Reserved.</p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Copyright Section End -->
+
+      <!-- JavaScript Files -->
+      <script src="{% static 'js/jquery.min.js' %}"></script>
+      <script src="{% static 'js/popper.min.js' %}"></script>
+      <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+      <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
+      <script src="{% static 'js/plugin.js' %}"></script>
+   </body>
+</html>

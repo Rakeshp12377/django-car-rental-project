@@ -1,0 +1,89 @@
+{% extends 'ddash.html' %}
+{% load static %}
+{% block content %}
+<br><br><br><br><br><br>
+<style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f0f0f0;
+}
+
+img {
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.edit-btn {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.edit-btn:hover {
+    background-color: #3e8e41;
+}
+
+.delete-btn {
+    background-color: #f44336;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #e91e63;
+}
+</style>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>SR NO.</th>
+                <th>Car Name</th>
+                <th>Price (Day)</th>
+                <th>Price (Hour)</th>
+                <th>Company</th>
+                <th>Location</th>
+                <th>Car Img</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for i in c %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td class="types_text"><a href="/single_car/{{i.id}}/">{{i.car_name}}</a></td>
+            <td class="looking_text">{{i.pardprice}}</td>
+            <td>{{i.parhprice}}</td>
+            <td class="looking_text" style="color:#">{{i.company}}</td>
+            <td class="looking_text" style="color:#">{{i.location}}</td>
+            <td class="Cars_img"><img src="{{i.car_img.url}}" height="100px" width="100px"></td>
+            <td>{{i.is_published}}</td>
+            <td>
+                <a class="btn btn-danger" href="/dashboard/editcar/{{i.id}}/"><i class="fa-solid fa-pen-to-square"></i></a>
+                <a class="btn btn-success" href="/dashboard/deletecar/{{i.id}}/"><i class="fa-solid fa-trash"></i></a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+{% endblock %}

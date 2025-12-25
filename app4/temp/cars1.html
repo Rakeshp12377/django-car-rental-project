@@ -1,0 +1,142 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block content %}
+
+     <!-- <div class="call_text_main">
+         <div class="container">
+            <div class="call_taital">
+               <div class="call_text"><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i><span class="padding_left_15">Location</span></a></div>
+               <div class="call_text"><a href="#"><i class="fa fa-phone" aria-hidden="true"></i><span class="padding_left_15">(+71) 8522369417</span></a></div>
+               <div class="call_text"><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i><span class="padding_left_15">demo@gmail.com</span></a></div>
+            </div>
+         </div>
+      </div>
+      <!-- gallery section start -->
+      <div class="Cars_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <h1 class="Cars_taital">Our best offers</h1>
+               </div>
+            </div>
+            <div class="cars_section_2">
+               <div class="row">
+                  {% for i in c %}
+                  <div class="col-md-4">
+                     <div class="cras_box">
+                        <div class="Cars_img"><img src="{{i.car_img.url}}"></div>
+                        <h3 class="types_text"><a href="/single_car/{{i.id}}/">{{i.car_name}}</a></h3>
+                        <h4 class="looking_text" style="color:#">{{i.company}}</h4>
+                          <p class="looking_text">Start per day rs.{{i.pardprice}}</p>
+                         <p class="looking_text">Start per hour rs.{{i.parhprice}}</p>
+                        <div class="read_bt"><a href="#">Book Now</a></div>
+                     </div>
+                  </div>
+                  {% endfor %}
+               </div>
+            </div>
+<!--            <div class="Cars_section_2">-->
+<!--               <div class="row">-->
+<!--                  <div class="col-md-4">-->
+<!--                     <div class="Cars_box">-->
+<!--                        <div class="Cars_img"><img src="{% static '/images/img-1.png'%}"></div>-->
+<!--                        <h3 class="types_text">Toyota car</h3>-->
+<!--                          <p class="looking_text">Start per day $4500</p>-->
+<!--                        <div class="read_bt"><a href="#">Book Now</a></div>-->
+<!--                     </div>-->
+<!--                  </div>-->
+<!--                  <div class="col-md-4">-->
+<!--                     <div class="Cars_box">-->
+<!--                        <div class="Cars_img"><img src="{% static '/images/img-2.png'%}"></div>-->
+<!--                        <h3 class="types_text">Toyota car</h3>-->
+<!--                          <p class="looking_text">Start per day $4500</p>-->
+<!--                        <div class="read_bt"><a href="#">Book Now</a></div>-->
+<!--                     </div>-->
+<!--                  </div>-->
+<!--                  <div class="col-md-4">-->
+<!--                     <div class="Cars_box">-->
+<!--                        <div class="Cars_img"><img src="{% static '/images/img-3.png'%}"></div>-->
+<!--                        <h3 class="types_text">Toyota car</h3>-->
+<!--                          <p class="looking_text">Start per day $4500</p>-->
+<!--                        <div class="read_bt"><a href="#">Book Now</a></div>-->
+<!--                     </div>-->
+<!--                  </div>-->
+<!--               </div>-->
+<!--            </div>-->
+<!--         </div>-->
+<!--      </div>-->
+      <!-- gallery section end -->
+
+<!--      &lt;!&ndash; footer section start &ndash;&gt;-->
+<!--      <div class="footer_section layout_padding">-->
+<!--         <div class="container">-->
+<!--            <div class="row">-->
+<!--               <div class="col-md-12">-->
+<!--                  <div class="footeer_logo"><img src="{% static '/images/logo.png'%}"></div>-->
+<!--               </div>-->
+<!--            </div>-->
+<!--            <div class="footer_section_2">-->
+<!--               <div class="row">-->
+<!--                  <div class="col">-->
+<!--                     <h4 class="footer_taital">Subscribe Now</h4>-->
+<!--                     <p class="footer_text">There are many variations of passages of Lorem Ipsum available,</p>-->
+<!--                     <div class="form-group">-->
+<!--                        <textarea class="update_mail" placeholder="Enter Your Email" rows="5" id="comment" name="Enter Your Email"></textarea>-->
+<!--                        <div class="subscribe_bt"><a href="#">Subscribe</a></div>-->
+<!--                     </div>-->
+<!--                  </div>-->
+<!--                  <div class="col">-->
+<!--                     <h4 class="footer_taital">Information</h4>-->
+<!--                     <p class="lorem_text">There are many variations of passages of Lorem Ipsum available, but the majority </p>-->
+<!--                  </div>-->
+<!--                  <div class="col">-->
+<!--                     <h4 class="footer_taital">Helpful Links</h4>-->
+<!--                     <p class="lorem_text">There are many variations of passages of Lorem Ipsum available, but the majority </p>-->
+<!--                  </div>-->
+<!--                  <div class="col">-->
+<!--                     <h4 class="footer_taital">Invesments</h4>-->
+<!--                     <p class="lorem_text">There are many variations of passages of Lorem Ipsum available, but the majority </p>-->
+<!--                  </div>-->
+<!--                  <div class="col">-->
+<!--                     <h4 class="footer_taital">Contact Us</h4>-->
+<!--                     <div class="location_text"><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i><span class="padding_left_15">Location</span></a></div>-->
+<!--                     <div class="location_text"><a href="#"><i class="fa fa-phone" aria-hidden="true"></i><span class="padding_left_15">(+71) 8522369417</span></a></div>-->
+<!--                     <div class="location_text"><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i><span class="padding_left_15">demo@gmail.com</span></a></div>-->
+<!--                     <div class="social_icon">-->
+<!--                        <ul>-->
+<!--                           <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>-->
+<!--                           <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>-->
+<!--                           <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>-->
+<!--                           <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>-->
+<!--                        </ul>-->
+<!--                     </div>-->
+<!--                  </div>-->
+<!--               </div>-->
+<!--            </div>-->
+<!--         </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; footer section end &ndash;&gt;-->
+<!--      &lt;!&ndash; copyright section start &ndash;&gt;-->
+<!--      <div class="copyright_section">-->
+<!--         <div class="container">-->
+<!--            <div class="row">-->
+<!--               <div class="col-sm-12">-->
+<!--                  <p class="copyright_text">2023 All Rights Reserved. Design by <a href="https://html.design">Free Html Templates</a> Distributed By <a href="https://themewagon.com">ThemeWagon</a></p>-->
+<!--               </div>-->
+<!--            </div>-->
+<!--         </div>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; copyright section end &ndash;&gt;-->
+<!--      &lt;!&ndash; Javascript files&ndash;&gt;-->
+<!--      <script src="{% static '/js/jquery.min.js'%}"></script>-->
+<!--      <script src="{% static '/js/popper.min.js'%}"></script>-->
+<!--      <script src="{% static '/js/bootstrap.bundle.min.js'%}"></script>-->
+<!--      <script src="{% static '/js/jquery-3.0.0.min.js'%}"></script>-->
+<!--      <script src="{% static '/js/plugin.js'%}"></script>-->
+<!--      &lt;!&ndash; sidebar &ndash;&gt;-->
+<!--      <script src="{% static '/js/jquery.mCustomScrollbar.concat.min.js'%}"></script>-->
+<!--      <script src="{% static '/js/custom.js'%}"></script>-->
+<!--   </body>-->
+<!--</html>-->
+         </div>
+            {% endblock %}

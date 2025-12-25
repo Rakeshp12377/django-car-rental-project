@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <title>Car Booking Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+<!--        .container {-->
+<!--            width: 50%;-->
+<!--            margin: 40px auto;-->
+<!--            padding: 20px;-->
+<!--            border: 1px solid #ddd;-->
+<!--            border-radius: 10px;-->
+<!--            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);-->
+<!--        }-->
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"], input[type="email"], input[type="date"], select {
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Car Booking Form</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="car">Car:</label>
+               <input type="text" id="car" name="car" value="{{c.car_name}}" required>
+            </div>
+             <div class="form-group">
+                <label for="phone">Picup Location:</label>
+                <input type="text" id="pickup-location" name="plocation" required>
+            </div>
+            <div class="form-group">
+                <label for="pickup-date">Pickup Date:</label>
+                <input type="date" id="pickup-date" name="pdate" required>
+            </div>
+            <div class="form-group">
+                <label for="return-date">Return Date:</label>
+                <input type="date" id="return-date" name="ddate" required>
+            </div>
+
+            <button type="submit">Back</button>
+            <button type="submit">Book Now</button>
+        </form>
+    </div>
+</body>
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends 'ddash.html' %}
+{% load static %}
+{% block content %}
+<br><br><br><br><br><br>
+<style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f0f0f0;
+}
+
+img {
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.edit-btn {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.edit-btn:hover {
+    background-color: #3e8e41;
+}
+
+.delete-btn {
+    background-color: #f44336;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #e91e63;
+}
+</style>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>SR NO.</th>
+                <th>Car Name</th>
+                <th>Picup Location</th>
+                 <th>Costumer Name</th>
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+      {% for i in s %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{ i.car_name.car_name }}</td>
+        <td>{{ i.plocation }}</td>
+         <td>{{ i.name }}</td>
+        <td>{{ i.pdate }}</td>
+            {% if i.is_status == 'Pending' %}
+            <td><a class="btn btn-danger">Reject</a></td>
+            {% elif i.is_status == 'Approve' %}
+            <td><a class="btn btn-success">Approved</a></td>
+            {% else %}
+            <td><a class="btn btn-danger" href="/dashboard/app_reject/{{i.id}}/">Reject</a><a class="btn btn-success" href="/dashboard/app_approve/{{i.id}}/">Approve</a></td>
+        {% endif %}
+    </tr>
+{% endfor %}
+
+        </tbody>
+    </table>
+</body>
+{% endblock %}

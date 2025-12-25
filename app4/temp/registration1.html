@@ -1,0 +1,268 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block content %}
+  <style>
+      *
+{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body
+{
+    font-size: 14px;
+    background: #f2f2f2;
+}
+
+.container1
+{
+    background: white;
+    width: 500px;
+    padding: 25px;
+    margin: 50px auto 0;
+    border-top: 5px solid blue;
+    box-shadow: 0 0 7px 5px rgba(0,0,0,0.5);
+}
+.container1 h2
+{
+    font-size: 24px;
+    line-height: 24px;
+    padding: 30px;
+    text-align: center;
+}
+.input-name
+{
+    width: 90%;
+    position: relative;
+    margin: 20px auto;
+}
+.lock
+{
+    padding: 12px 12px;
+}
+/* .name
+{
+    width: 45%;
+    padding: 8px 0 8px 40px;
+} */
+/* .input-name span
+{
+    margin-left: 35px;
+} */
+.text-name
+{
+    width: 100%;
+    padding: 8px 0 8px 40px;
+}
+.input-name i
+{
+    position: absolute;
+    font-size: 18px;
+    color: blue;
+    border-right:1px solid #cccccc;
+}
+.email
+{
+     padding: 12px 9px;
+    }
+.name
+{
+    padding: 12px 10px;
+}
+.text-name, .name
+{
+    border: 1px solid #cccccc;
+    outline: none;
+    -webkit transition: all 0.30s ease-in-out;
+    -moz transition: all 0.30s ease-in-out;
+    -ms transition: all 0.30s ease-in-out;
+    transition: all 0.30s ease-in-out;
+}
+.text-name:hover, .name:hover
+{
+    background-color:#fafafa;
+}
+.text-name:focus, .name:focus
+{
+border: 1px solid blue
+}
+.radio-button
+{
+    margin-right: 4px;
+}
+.city
+{
+    display: inline-block;
+    width: 100%;
+    height: 35px;
+    padding: 0px 15px;
+    cursor: pointer;
+    border:1px solid #cccccc;
+    color: #7b7b7b;
+    border-radius: 0;
+    background: white;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    transition: all 0.2s ease;
+}
+.city::ms-expand
+{
+    display: none;
+}
+.city :hover, .city:focus
+{
+    color: blue;
+    background: #fafafa;
+    border-color:black;
+    outline: none;
+}
+.arrow
+{
+    position: absolute;
+    top: calc(50% - 4px);
+    right: 15px;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    border-width: 8px 5px 0 5px;
+    border-style:solid;
+    border-color:#7b7b7b transparent transparent transparent;
+}
+.city:hover; + .arrow .city:focus; +arrow
+{
+    border-top-color:blue;
+}
+.check
+{
+    margin-right: 15px;
+    position: relative;
+}
+.check::before
+{
+    content:"";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 8px;
+    vertical-align: -2px;
+    border: 2px solid #cccccc;
+    padding: 2.5px;
+    background-color: transparent;
+    background-clip: content-box;
+    transition: all 0.2s ease;
+}
+.check::after
+{
+    border-right: 2px solid black;
+    border-top: 2px solid black;
+    content: "";
+    height: 20px;
+    left: 2px;
+    position: absolute;
+    top: 7px;
+    transform: scaleX(-1) rotate(135deg);
+    transform-origin: left-top;
+    width: 7px;
+    display: none;
+}
+.check-button
+{
+    border: 0;
+    clip:rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+.check-button:hover +.check::before
+{
+    border-color: blue;
+}
+.check-button:checked +.check::before
+{
+    border-color: green;
+}
+.check-button:checked +.check::after
+{
+    -moz-animation: check 0.8s ease 0s running;
+    -webkit-animation: check 0.8s ease 0s running;
+    animation: check 0.8s ease 0s running;
+    display: block;
+    width: 7px;
+    height: 20px;
+    border-color: green;
+}
+@-webkit-keyframes check
+{
+    0%{height: 0;width: 0;}
+    25%{height: 0;width: 0;}
+    50%{height: 20px;width: 7p7px;}
+}
+.button
+{
+    background-color: blue;
+    color: white;
+    height: 35px;
+    line-height: 35px;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.button:hover
+{
+    background-color: green;
+}
+  </style>
+<br><br><br><br><br>
+	<div class="container1">
+        <h2>Registration Form</h2>
+    <div class="form-container">
+        <form action="#" method="POST">
+            {% csrf_token %}
+            <div class="input-name">
+                <i class="fa fa-user name"></i>
+                <input type="text" id="username" placeholder="username" name="username" required class="text-name">
+            </div>
+                <div class="input-name">
+                <i class="fa fa-user name"></i>
+                <input type="text" id="first_name" placeholder="First Name" name="first_name" required class="text-name">
+                <!-- <span>
+                    <i class="fa fa-user name"></i>
+                    <input type="text" placeholder="Last Name" required class="text-name">
+                </span> -->
+            </div>
+
+            <div class="input-name">
+                <i class="fa fa-user name"></i>
+                <input type="text" id="last_name" placeholder="Last Name" name="last_name" required class="text-name">
+            </div>
+
+            <div class="input-name">
+                <i class="fa fa-envelope email"></i>
+                <input type="email" id="email" placeholder="Email" name="email" required class="text-name">
+            </div>
+
+            <div class="input-name">
+                <i class="fa fa-lock lock"></i>
+                <input type="password" id="password" placeholder="password" name="password" required class="text-name">
+            </div>
+            <div class="input-name">
+                <i class="fa fa-lock lock"></i>
+                <input type="password" id="confirm_password" placeholder="confirm Password" name="password" required class="text-name">
+            </div>
+
+            <div class="input-name">
+                <button type="submit" class="button" value="Register1">Register</button>
+            </div>
+        </form>
+    </div>
+    </div>
+<br><br><br><br><br>
+{% endblock %}
+
